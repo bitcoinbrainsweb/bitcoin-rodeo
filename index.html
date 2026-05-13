@@ -10,189 +10,94 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0C0A07;--bg2:#121009;
+  --bg:#0C0A07;--bg2:#121009;--bg3:#1A1510;
   --fg:#F0E8D5;--fg2:#9A8870;--fg3:#4A3D2C;
   --orange:#F7931A;--gold:#C8A84B;
   --border:rgba(201,168,76,0.12);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{height:100%}
 body{background:var(--bg);color:var(--fg);font-family:"DM Sans",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--gold);color:var(--bg)}
 img{display:block;max-width:100%}
 a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
 
-/* ── HERO ── */
-.hero{
-  position:relative;
-  height:100svh;
-  min-height:560px;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 35%;
-  z-index:0;
-}
-.hero-overlay{
-  position:absolute;inset:0;z-index:1;
-  background:
-    linear-gradient(to right, rgba(12,10,7,0.65) 0%, rgba(12,10,7,0.1) 60%),
-    linear-gradient(to bottom, rgba(12,10,7,0.25) 0%, rgba(12,10,7,0.0) 35%, rgba(12,10,7,0.85) 80%, #0C0A07 100%);
-}
+.hero{position:relative;height:100svh;min-height:560px;display:flex;flex-direction:column;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(12,10,7,0.65) 0%,rgba(12,10,7,0.1) 60%),linear-gradient(to bottom,rgba(12,10,7,0.25) 0%,rgba(12,10,7,0) 35%,rgba(12,10,7,0.85) 80%,#0C0A07 100%)}
 
-/* NAV — floats on image */
-.nav{
-  position:relative;z-index:10;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.4rem 2.5rem;
-}
+.nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 2.5rem}
 .nav img{height:30px;width:auto}
 .nav-fallback{font-family:"Bebas Neue",sans-serif;font-size:1.4rem;color:var(--gold);letter-spacing:0.1em}
-.nav-tag{
-  font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;
-  color:var(--fg3);font-weight:400;
-}
+.nav-tag{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg3)}
 
-/* HERO FLOOR — bottom-anchored split */
-.hero-floor{
-  position:relative;z-index:10;
-  margin-top:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:2rem;
-  align-items:end;
-  padding:0 2.5rem 2.75rem;
-}
-.hero-hl{
-  font-family:"Bebas Neue",sans-serif;
-  font-size:clamp(5rem,12vw,11rem);
-  line-height:0.85;
-  letter-spacing:0.01em;
-  color:var(--fg);
-}
+.hero-floor{position:relative;z-index:10;margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding:0 2.5rem 2.75rem}
+.hero-hl{font-family:"Bebas Neue",sans-serif;font-size:clamp(5rem,12vw,11rem);line-height:0.85;letter-spacing:0.01em;color:var(--fg)}
 .hero-hl .g{color:var(--gold)}
-
 .hero-right{padding-bottom:0.5rem}
-.hero-copy{
-  font-size:1.15rem;color:var(--fg2);
-  line-height:1.72;margin-bottom:1.5rem;
-  max-width:400px;
-}
+.hero-copy{font-size:1.15rem;color:var(--fg2);line-height:1.72;margin-bottom:1.5rem;max-width:400px}
 .hero-copy strong{color:var(--fg);font-weight:400}
-
 .hero-cta{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
-.cta-btn{
-  font-family:"Bebas Neue",sans-serif;
-  font-size:1.05rem;letter-spacing:0.08em;
-  color:var(--bg);background:var(--gold);
-  padding:0.5em 1.75em;border-radius:2px;
-  text-decoration:none;white-space:nowrap;
-  transition:opacity 150ms ease;
-}
-.cta-btn:hover{opacity:0.82}
 .cta-label{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg3);margin-bottom:0.6rem;font-weight:400}
-.cta-aside{
-  font-size:0.65rem;letter-spacing:0.22em;
-  text-transform:uppercase;color:var(--orange);
-  line-height:1.4;
-}
+.cta-btn{font-family:"Bebas Neue",sans-serif;font-size:1.05rem;letter-spacing:0.08em;color:var(--bg);background:var(--gold);padding:0.5em 1.75em;border-radius:2px;text-decoration:none;white-space:nowrap;transition:opacity 150ms ease}
+.cta-btn:hover{opacity:0.82}
+.cta-aside{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);line-height:1.4}
 
-/* ── SPLIT — roast image + video ── */
-.split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:420px;
-  border-top:1px solid var(--border);
-}
-.split-img{
-  position:relative;overflow:hidden;
-}
-.split-img img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center;
-}
-.split-img-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to right, transparent 60%, var(--bg2) 100%);
-}
-.split-right{
-  background:var(--bg2);
-  display:flex;flex-direction:column;
-  border-left:1px solid var(--border);
-}
-.split-meta{
-  padding:1.75rem 1.75rem 1.25rem;
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:1rem;
-}
-.year-tag{
-  font-family:"Bebas Neue",sans-serif;font-size:1rem;
-  color:var(--bg);background:var(--gold);
-  padding:0.15em 0.55em;border-radius:2px;letter-spacing:0.06em;flex-shrink:0;
-}
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:420px;border-top:1px solid var(--border)}
+.split-img{position:relative;overflow:hidden}
+.split-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+.split-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--bg2) 100%)}
+.split-right{background:var(--bg2);display:flex;flex-direction:column;border-left:1px solid var(--border)}
+.split-meta{padding:1.75rem 1.75rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem}
+.year-tag{font-family:"Bebas Neue",sans-serif;font-size:1rem;color:var(--bg);background:var(--gold);padding:0.15em 0.55em;border-radius:2px;letter-spacing:0.06em;flex-shrink:0}
 .split-title{font-family:"Bebas Neue",sans-serif;font-size:1.5rem;color:var(--fg);letter-spacing:0.04em;line-height:1}
 .split-sub{font-size:0.78rem;color:var(--fg2);font-weight:300;margin-top:0.2rem}
 .vembed{position:relative;flex:1;min-height:0}
 .vembed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-/* ── SPONSORS ── */
-.sponsors{
-  border-top:1px solid var(--border);
-  padding:2rem 2.5rem 2.75rem;
-}
-.sp-head{
-  font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--fg3);margin-bottom:1.5rem;text-align:center;
-}
-.tiers{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 3rem}
-.tier-lbl{
-  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--gold);border-bottom:1px solid var(--border);
-  padding-bottom:0.35rem;margin-bottom:0.65rem;
-}
-.pills{display:flex;flex-wrap:wrap;gap:0.4rem;list-style:none}
-.pill{
-  font-size:0.75rem;color:var(--fg2);
-  padding:0.2rem 0.65rem;
-  border:1px solid var(--border);border-radius:2px;font-weight:300;
-}
+/* PAST SPEAKERS */
+.speakers{border-top:1px solid var(--border);padding:2.5rem 2.5rem 3rem}
+.s-eye{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--orange);margin-bottom:0.6rem;font-weight:500}
+.s-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--fg);letter-spacing:0.04em;margin-bottom:1.75rem}
+.spk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:1.25rem 1rem}
+.spk{text-align:center}
+.spk-img{width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto 0.5rem;filter:grayscale(25%);opacity:0.85;transition:opacity 150ms,filter 150ms;border:1px solid var(--border)}
+.spk:hover .spk-img{opacity:1;filter:grayscale(0%)}
+.spk-name{font-size:0.78rem;color:var(--fg);font-weight:400;line-height:1.3;margin-bottom:0.15rem}
+.spk-role{font-size:0.68rem;color:var(--fg2);font-weight:300;line-height:1.3}
 
-/* ── FOOTER ── */
-.footer{
-  border-top:1px solid var(--border);
-  padding:1.25rem 2.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-}
+/* SPONSORS */
+.sponsors{border-top:1px solid var(--border);padding:2rem 2.5rem 2.5rem}
+.tier-lbl{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);padding-bottom:0.35rem;margin-bottom:1rem}
+.logo-row{display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem 2.5rem;margin-bottom:2rem}
+.logo-row:last-child{margin-bottom:0}
+.logo-row img{height:26px;width:auto;opacity:0.6;filter:brightness(1.1);transition:opacity 150ms}
+.logo-row img:hover{opacity:1}
+.logo-row.title img{height:30px}
+
+.footer{border-top:1px solid var(--border);padding:1.25rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
 .footer img{height:20px;opacity:0.25}
 .copy{font-size:0.7rem;color:var(--fg3);font-weight:300}
 
-/* ── MOBILE ── */
 @media(max-width:680px){
   .hero-floor{grid-template-columns:1fr;gap:1.25rem;padding:0 1.5rem 2rem}
   .hero-hl{font-size:clamp(4rem,14vw,6rem)}
   .nav{padding:1.1rem 1.5rem}
   .split{grid-template-columns:1fr;min-height:auto}
   .split-img{height:220px}
-  .split-img-overlay{background:linear-gradient(to bottom,transparent 50%,var(--bg2) 100%)}
   .split-right{border-left:none;border-top:1px solid var(--border)}
-  .tiers{grid-template-columns:1fr}
-  .sponsors{padding:1.75rem 1.5rem 2.25rem}
+  .speakers{padding:2rem 1.5rem 2.5rem}
+  .spk-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}
+  .sponsors{padding:1.75rem 1.5rem 2rem}
+  .logo-row{gap:1rem 1.75rem}
   .footer{flex-direction:column;gap:0.75rem;text-align:center;padding:1.25rem 1.5rem}
 }
 </style>
 </head>
 <body>
 
-<!-- HERO: full viewport -->
 <section class="hero" aria-labelledby="hero-heading">
   <img class="hero-bg" src="/img/hero.jpg" alt="" aria-hidden="true" onerror="this.style.display='none'">
   <div class="hero-overlay" aria-hidden="true"></div>
-
   <nav class="nav" aria-label="Site">
     <a href="/" aria-label="Bitcoin Rodeo home" style="display:inline-flex;align-items:center;text-decoration:none">
       <img src="https://bitcoinrodeo.com/media/bitcoinrodeo-logo.svg" alt="Bitcoin Rodeo" height="30"
@@ -200,29 +105,23 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2
     </a>
     <span class="nav-tag">Calgary · Alberta</span>
   </nav>
-
   <div class="hero-floor">
     <div class="hero-left">
-      <h1 class="hero-hl" id="hero-heading">
-        Not this<br><span class="g">year.</span>
-      </h1>
+      <h1 class="hero-hl" id="hero-heading">Not this<br><span class="g">year.</span></h1>
     </div>
     <div class="hero-right">
-      <p class="hero-copy">
-        Ticket sales were slow, sponsorship didn't come together, and the venue threw us a curveball. So we made the call: <strong>the 2026 Bitcoin Rodeo is cancelled.</strong> No drama. The Rodeo has legs. We'll be back in 2027.
-      </p>
+      <p class="hero-copy">Ticket sales were slow, sponsorship didn't come together, and the venue threw us a curveball. So we made the call: <strong>the 2026 Bitcoin Rodeo is cancelled.</strong> No drama. The Rodeo has legs. We'll be back in 2027.</p>
       <div class="hero-cta">
-        <p class="cta-label">Join us at the Sat Market</p>
-        <a class="cta-btn" href="https://bitcoinsatmarket.com/" target="_blank" rel="noopener">
-          bitcoinsatmarket.com →
-        </a>
+        <div>
+          <p class="cta-label">Join us at the Sat Market</p>
+          <a class="cta-btn" href="https://bitcoinsatmarket.com/" target="_blank" rel="noopener">bitcoinsatmarket.com →</a>
+        </div>
         <span class="cta-aside">Friday<br>June 26 · Calgary</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SPLIT: roast image left / video right -->
 <section class="split" aria-labelledby="roast-heading">
   <div class="split-img">
     <img src="/img/roast.jpg" alt="The Roast of BTC Sessions, 2024" onerror="this.style.display='none'">
@@ -245,40 +144,208 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2
   </div>
 </section>
 
-<!-- SPONSORS -->
-<section class="sponsors" aria-labelledby="sp-heading">
-  <p class="sp-head" id="sp-heading">Thank you to everyone who showed up for the Bitcoin Rodeo</p>
-  <div class="tiers">
-    <div class="tier">
-      <p class="tier-lbl">Title Sponsors</p>
-      <ul class="pills">
-        <li class="pill">Bull Bitcoin</li>
-        <li class="pill">Bitcoin Well</li>
-        <li class="pill">Great Horn AML</li>
-        <li class="pill">Wild Rose Mining</li>
-        <li class="pill">Bow Valley Credit Union</li>
-      </ul>
+<section class="speakers" aria-labelledby="spk-heading">
+  <p class="s-eye">Past Voices</p>
+  <h2 class="s-title" id="spk-heading">Past Speakers</h2>
+  <div class="spk-grid">
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Nico_Headshot.jpeg" alt="Nico Moran" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Nico Moran</p>
+      <p class="spk-role">Host · Simply Bitcoin</p>
     </div>
-    <div class="tier">
-      <p class="tier-lbl">Supporting Sponsors</p>
-      <ul class="pills">
-        <li class="pill">Block Rewards</li>
-        <li class="pill">StacksWorth</li>
-        <li class="pill">nmbrly.ai</li>
-        <li class="pill">QuickBit Crypto Boutique</li>
-        <li class="pill">Living With Chan</li>
-        <li class="pill">The Kendrick Hotel</li>
-        <li class="pill">CoinBeast</li>
-        <li class="pill">Silver Gold Bull</li>
-        <li class="pill">Bitcoin Mentor</li>
-        <li class="pill">Bitcoin Manor</li>
-        <li class="pill">Sun City Silver</li>
-      </ul>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Adam-Soltys.png" alt="Adam Soltys" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Adam Soltys</p>
+      <p class="spk-role">Builder · Bitcoin Infrastructure</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/BJ-Dichter.png" alt="BJ Dichter" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">BJ Dichter</p>
+      <p class="spk-role">Host · Canadian Bitcoiners</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Ben-Gagnon-Chief-Mining-Officer-BitFarms-1.jpg" alt="Ben Gagnon" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Ben Gagnon</p>
+      <p class="spk-role">Chief Mining Officer · Bitfarms</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Ben-Harper-e1731211621480.jpeg" alt="Ben Harper" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Ben Harper</p>
+      <p class="spk-role">Associate Director · Note Ministry</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Bitcoin-Bekka-.jpeg" alt="Bitcoin Bekka" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Bitcoin Bekka</p>
+      <p class="spk-role">Writer & Host</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/CFunk-526.png" alt="C Funk" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">C Funk</p>
+      <p class="spk-role">OG Bitcoiner & MC</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Cole-Goodwin.jpg" alt="Cole Goodwin" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Cole Goodwin</p>
+      <p class="spk-role">Entrepreneur & Rancher</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Colin-Sullivan.jpg" alt="Colin Sullivan" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Colin Sullivan</p>
+      <p class="spk-role">CEO · MintGreen</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Dale-Mychasew-scaled.jpeg" alt="Dale Mychasew" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Dale Mychasew</p>
+      <p class="spk-role">Founder · Oilfield Cypherpunks</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Dave-Hardman.jpeg" alt="Dave Hardman" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Dave Hardman</p>
+      <p class="spk-role">Founder · Motherlode Bitcoin</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Derek-Fildebrandt.jpg" alt="Derek Fildebrandt" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Derek Fildebrandt</p>
+      <p class="spk-role">CEO · Western Standard</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Didier-Lavallee.jpg" alt="Didier Lavallee" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Didier Lavallee</p>
+      <p class="spk-role">CEO · Tetra Trust</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Erik-Johnson.png" alt="Erik Johnson" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Erik Johnson</p>
+      <p class="spk-role">Investor & Coach</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Flo-Montoya.jpg" alt="Flo Montoya" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Flo Montoya</p>
+      <p class="spk-role">Chair · Bitcoin Only</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Greg-Foss.jpg" alt="Greg Foss" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Greg Foss</p>
+      <p class="spk-role">Risk Manager & Strategist</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Harry-Sudock.jpg" alt="Harry Sudock" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Harry Sudock</p>
+      <p class="spk-role">Chief Strategy Officer · GRIID</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/JP%20Sears.jpeg" alt="JP Sears" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">JP Sears</p>
+      <p class="spk-role">Comedian & Creator</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Julian-Figueroa.jpg" alt="Julian Figueroa" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Julian Figueroa</p>
+      <p class="spk-role">Co-founder · The Breakup</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Michell-Demeter.jpg" alt="Mitchell Demeter" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Mitchell Demeter</p>
+      <p class="spk-role">Founder · Netcoins</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Rodolfo-Novak.jpg" alt="Rodolfo Novak" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Rodolfo Novak</p>
+      <p class="spk-role">Co-founder · Coinkite</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Saifedean.jpg" alt="Saifedean Ammous" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Saifedean Ammous</p>
+      <p class="spk-role">Author · The Bitcoin Standard</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Seb-Bunney.jpg" alt="Seb Bunney" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Seb Bunney</p>
+      <p class="spk-role">Co-founder · Looking Glass</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Sebastian-Elawney.jpg" alt="Sebastian Elawney" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Sebastian Elawney</p>
+      <p class="spk-role">Founder · Tipple</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Simon-Raven.jpg" alt="Simon Raven" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Simon Raven</p>
+      <p class="spk-role">President · Inverted Energy</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Steve-Barbour.jpg" alt="Steve Barbour" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Steve Barbour</p>
+      <p class="spk-role">CEO · Upstream Data</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/Takota-Coen-1.png" alt="Takota Coen" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Takota Coen</p>
+      <p class="spk-role">Founder · Coen Farm</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/arthur-salzer.png" alt="Arthur Salzer" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Arthur Salzer</p>
+      <p class="spk-role">CEO · Northland Wealth</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/brett-Oland.png" alt="Brett Oland" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Brett Oland</p>
+      <p class="spk-role">CEO · Bow Valley Credit Union</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/graham-wardle.jpeg" alt="Graham Wardle" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Graham Wardle</p>
+      <p class="spk-role">Actor & Podcast Host</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/krista-edmunds.jpg" alt="Krista Edmunds" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Krista Edmunds</p>
+      <p class="spk-role">Founder · The Bitcoin Atelier</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/noah-cramer.png" alt="Noah Cramer" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Noah Cramer</p>
+      <p class="spk-role">Co-founder · Wild Rose Mining</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/preston.jpeg" alt="Preston Pysh" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Preston Pysh</p>
+      <p class="spk-role">Co-founder · The Investor's Podcast</p>
+    </div>
+    <div class="spk">
+      <img class="spk-img" src="https://bitcoinrodeo.com/Speakers%20Page/taylor-perron.jpg" alt="Taylor Perron" onerror="this.style.background='var(--bg3)'">
+      <p class="spk-name">Taylor Perron</p>
+      <p class="spk-role">Founder · Matador</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<section class="sponsors" aria-labelledby="sp-title">
+  <h2 class="tier-lbl" id="sp-title">Title Sponsors</h2>
+  <div class="logo-row title">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/Bull-Bitcoin_w.webp" alt="Bull Bitcoin" height="30" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/Bitcoin-Well_w.webp" alt="Bitcoin Well" height="30" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/Great-Horn-AML_w.webp" alt="Great Horn AML" height="30" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/Wild-Rose-Mining_w.webp" alt="Wild Rose Mining" height="30" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/bow_valley_white_logo.webp" alt="Bow Valley Credit Union" height="30" onerror="this.style.display='none'">
+  </div>
+  <h2 class="tier-lbl">Supporting Sponsors</h2>
+  <div class="logo-row">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/Block-Rewards_w_2.webp" alt="Block Rewards" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/StacksWorth_w.webp" alt="StacksWorth" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/Nmbrly_w.webp" alt="nmbrly.ai" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/QuickBit_w.webp" alt="QuickBit Crypto Boutique" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/Living-With-Chan_w.webp" alt="Living With Chan" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/The-Kenrick-Hotel_w.webp" alt="The Kendrick Hotel" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/Coinbeast_w.webp" alt="CoinBeast" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/silver_gold_bull_white_only.webp" alt="Silver Gold Bull" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/bitcoin-mentor-logo-1.webp" alt="Bitcoin Mentor" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/bitcoin_manor_cleaned.webp" alt="Bitcoin Manor" height="24" onerror="this.style.display='none'">
+      <img src="https://bitcoinrodeo.com/Sponsors_Bitcoin%20Rodeo/sun_city_silver_w.webp" alt="Sun City Silver" height="24" onerror="this.style.display='none'">
+  </div>
+</section>
+
 <footer class="footer">
   <img src="https://bitcoinrodeo.com/media/bitcoinrodeo-logo.svg" alt="Bitcoin Rodeo"
     onerror="this.onerror=null;this.style.display='none'">

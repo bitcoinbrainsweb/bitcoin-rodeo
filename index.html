@@ -1,1 +1,540 @@
-<!DOCTYPE html><html><head><meta charset=UTF-8><title>Bitcoin Rodeo</title></head><body><p>Coming soon.</p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitcoin Rodeo — Not this year.</title>
+<meta name="description" content="The 2026 Bitcoin Rodeo is cancelled. We'll be back in 2027. In the meantime, see us at the Bitcoin Sat Market in Calgary on Friday, June 26.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:      #0C0A07;
+    --bg2:     #141008;
+    --bg3:     #1B160C;
+    --fg:      #F2EAD8;
+    --fg2:     #9A8870;
+    --fg3:     #5C4E3A;
+    --orange:  #F7931A;
+    --gold:    #C8A84B;
+    --border:  rgba(201, 168, 76, 0.15);
+  }
+
+  *,
+  *::before,
+  *::after { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection { background: var(--gold); color: var(--bg); }
+
+  a { color: var(--fg); }
+
+  a:focus-visible,
+  button:focus-visible,
+  iframe:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     S1 — Nav
+     ──────────────────────────────────────────────────────────────── */
+  .nav {
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav img {
+    display: block;
+    height: 38px;
+    width: auto;
+  }
+  .nav-fallback {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     Main column
+     ──────────────────────────────────────────────────────────────── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     S2 — Hero
+     ──────────────────────────────────────────────────────────────── */
+  .hero {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .eyebrow-pill {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--fg3);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.4em 1.2em;
+    display: inline-block;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .hero-headline {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    margin: 0 0 2rem;
+    color: var(--fg);
+    font-weight: 400;
+  }
+  .hero-headline .gold { color: var(--gold); }
+
+  .hero-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--border);
+    border: 0;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-body {
+    color: var(--fg2);
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .hero-body p { margin: 0 0 1.25rem; }
+  .hero-body p:last-child { margin-bottom: 0; }
+  .hero-body strong {
+    color: var(--fg);
+    font-weight: 400;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     S3 — CTA block
+     ──────────────────────────────────────────────────────────────── */
+  .cta {
+    max-width: 540px;
+    margin: 2.5rem auto 0;
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    border-radius: 3px;
+    padding: 2rem;
+    text-align: center;
+  }
+  .cta-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 0.75rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .cta-line {
+    font-size: 1.15rem;
+    color: var(--fg);
+    font-weight: 400;
+    line-height: 1.55;
+    margin: 0 0 1.25rem;
+  }
+  .cta-button {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    color: var(--bg);
+    background: var(--gold);
+    padding: 0.55em 1.8em;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    min-height: 44px;
+    line-height: 1.6;
+    transition: opacity 150ms ease;
+  }
+  .cta-button:hover { opacity: 0.85; }
+
+  /* ────────────────────────────────────────────────────────────────
+     S4 / S6 — Rope divider
+     ──────────────────────────────────────────────────────────────── */
+  .rope {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .rope .line {
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 5px, transparent 5px, transparent 9px);
+    opacity: 0.2;
+  }
+  .rope .dots {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1rem;
+    color: var(--fg3);
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     S5 — 2024 Highlight
+     ──────────────────────────────────────────────────────────────── */
+  .highlight {
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .highlight-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--fg);
+    letter-spacing: 0.04em;
+    margin: 0 0 0.75rem;
+    line-height: 1;
+    font-weight: 400;
+  }
+  .highlight-body {
+    font-size: 1rem;
+    color: var(--fg2);
+    font-weight: 300;
+    margin: 0 0 2.5rem;
+    line-height: 1.75;
+  }
+
+  .video-card {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--bg2);
+  }
+  .video-card-header {
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .year-tag {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2rem;
+    color: var(--bg);
+    background: var(--gold);
+    padding: 0.1em 0.5em;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+  .video-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+  .video-card-title {
+    font-size: 1rem;
+    color: var(--fg);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .video-card-sub {
+    font-size: 0.82rem;
+    color: var(--fg2);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: var(--bg);
+  }
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     S7 — Sponsors
+     ──────────────────────────────────────────────────────────────── */
+  .sponsors {
+    padding: 4rem 2rem 5rem;
+    border-top: 1px solid var(--border);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .sponsors-intro {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg3);
+    text-align: center;
+    margin: 0 0 2.5rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .tier-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin: 0 0 0.9rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .tier {
+    margin-bottom: 2.5rem;
+  }
+  .tier:last-child { margin-bottom: 0; }
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .pill {
+    font-size: 0.82rem;
+    color: var(--fg2);
+    padding: 0.3rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     S8 — Footer
+     ──────────────────────────────────────────────────────────────── */
+  .footer {
+    width: 100%;
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .footer img {
+    display: block;
+    height: 26px;
+    width: auto;
+    opacity: 0.35;
+    margin: 0 auto 1rem;
+  }
+  .footer-fallback {
+    display: block;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    opacity: 0.35;
+    margin: 0 auto 1rem;
+    line-height: 1;
+  }
+  .copyright {
+    font-size: 0.78rem;
+    color: var(--fg3);
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     Small screens
+     ──────────────────────────────────────────────────────────────── */
+  @media (max-width: 480px) {
+    .hero-headline {
+      font-size: clamp(3rem, 10vw, 5rem);
+    }
+    .hero { padding: 4.5rem 1.25rem 4rem; }
+    .cta { padding: 1.75rem 1.25rem; }
+    .highlight { padding: 4rem 1.25rem; }
+    .sponsors { padding: 3.5rem 1.25rem 4.5rem; }
+    .video-card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1.1rem 1.25rem;
+    }
+    main { padding: 0 1.25rem; }
+    .rope { padding: 0 1.25rem; }
+    .footer { padding: 2.25rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- S1 — Nav -->
+<nav class="nav" aria-label="Site">
+  <a href="/" aria-label="Bitcoin Rodeo home" style="display:inline-flex;align-items:center;text-decoration:none;">
+    <img
+      src="https://bitcoinrodeo.com/media/bitcoinrodeo-logo.svg"
+      alt="Bitcoin Rodeo"
+      height="38"
+      onerror="this.onerror=null;this.style.display='none';var s=document.createElement('span');s.className='nav-fallback';s.textContent='BITCOIN RODEO';this.parentNode.appendChild(s);"
+    >
+  </a>
+</nav>
+
+<main>
+
+  <!-- S2 — Hero -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="eyebrow-pill">AN HONEST UPDATE · JUNE 2026</div>
+    <h1 class="hero-headline" id="hero-heading">
+      Not this<br>
+      <span class="gold">year.</span>
+    </h1>
+    <hr class="hero-rule" aria-hidden="true">
+    <div class="hero-body">
+      <p>Ticket sales were slow, sponsorship didn't come together the way we needed, and the venue threw us a curveball. So we made the call: <strong>the 2026 Bitcoin Rodeo is cancelled.</strong></p>
+      <p>No drama. The Rodeo has legs. We'll be back in 2027.</p>
+    </div>
+
+    <!-- S3 — CTA block -->
+    <aside class="cta" aria-label="In the meantime">
+      <p class="cta-eyebrow">IN THE MEANTIME — THIS FRIDAY, JUNE 26</p>
+      <p class="cta-line">We'll see you at the Bitcoin Sat Market in Calgary.</p>
+      <a class="cta-button" href="https://bitcoinsatmarket.com/" target="_blank" rel="noopener">bitcoinsatmarket.com →</a>
+    </aside>
+  </section>
+
+  <!-- S4 — Rope divider -->
+  <div class="rope" aria-hidden="true">
+    <span class="line"></span>
+    <span class="dots">· · ·</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- S5 — 2024 Highlight -->
+  <section class="highlight" aria-labelledby="highlight-heading">
+    <p class="section-label">2024 HIGHLIGHT</p>
+    <h2 class="highlight-title" id="highlight-heading">The Roast of BTC Sessions</h2>
+    <p class="highlight-body">A Calgary classic. Nobody saw it coming. Nobody will forget it.</p>
+
+    <div class="video-card">
+      <div class="video-card-header">
+        <span class="year-tag" aria-hidden="true">2024</span>
+        <div class="video-card-meta">
+          <span class="video-card-title">The Roast of BTC Sessions</span>
+          <span class="video-card-sub">Recorded live · Calgary, Alberta</span>
+        </div>
+      </div>
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/g98OixWEiRI"
+          title="The Roast of BTC Sessions"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 — Rope divider -->
+  <div class="rope" aria-hidden="true">
+    <span class="line"></span>
+    <span class="dots">· · ·</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- S7 — Sponsors -->
+  <section class="sponsors" aria-labelledby="sponsors-heading">
+    <p class="sponsors-intro" id="sponsors-heading">THANK YOU TO EVERYONE WHO SHOWED UP FOR THE BITCOIN RODEO</p>
+
+    <div class="tier">
+      <p class="tier-label">TITLE SPONSORS</p>
+      <ul class="pills">
+        <li class="pill">Bull Bitcoin</li>
+        <li class="pill">Bitcoin Well</li>
+        <li class="pill">Great Horn AML</li>
+        <li class="pill">Wild Rose Mining</li>
+        <li class="pill">Bow Valley Credit Union</li>
+      </ul>
+    </div>
+
+    <div class="tier">
+      <p class="tier-label">SUPPORTING SPONSORS</p>
+      <ul class="pills">
+        <li class="pill">Block Rewards</li>
+        <li class="pill">StacksWorth</li>
+        <li class="pill">nmbrly.ai</li>
+        <li class="pill">QuickBit Crypto Boutique</li>
+        <li class="pill">Living With Chan</li>
+        <li class="pill">The Kendrick Hotel</li>
+        <li class="pill">CoinBeast</li>
+        <li class="pill">Silver Gold Bull</li>
+        <li class="pill">Bitcoin Mentor</li>
+        <li class="pill">Bitcoin Manor</li>
+        <li class="pill">Matador</li>
+        <li class="pill">Sun City Silver</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- S8 — Footer -->
+<footer class="footer">
+  <img
+    src="https://bitcoinrodeo.com/media/bitcoinrodeo-logo.svg"
+    alt="Bitcoin Rodeo"
+    onerror="this.onerror=null;this.style.display='none';var s=document.createElement('span');s.className='footer-fallback';s.textContent='BITCOIN RODEO';this.parentNode.insertBefore(s,this.nextSibling);"
+  >
+  <p class="copyright">© Creative Network Live · Calgary, Alberta</p>
+</footer>
+
+</body>
+</html>
